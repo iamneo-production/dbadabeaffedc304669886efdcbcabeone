@@ -29,7 +29,7 @@ const checkWin = () => {
 
 // Function to handle player moves
 const handleCellClick = (element, index) => {
-    if (cells[index] === '' && result.textContent === '') {
+    if (cells[index] === '') {
         cells[index] = currentPlayer;
         element.textContent = currentPlayer;
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';

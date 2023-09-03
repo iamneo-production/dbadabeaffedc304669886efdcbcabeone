@@ -27,21 +27,19 @@ const checkWin = () => {
     return false;
 };
 
+
 // Function to handle player moves
 const handleCellClick = (element, index) => {
     if (cells[index] === '') {
         cells[index] = currentPlayer;
         element.textContent = currentPlayer;
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        result.textContent = `Player ${currentPlayer}'s turn`;
+        element.removeEventListener('click', handleCellClick);
+
         if (!checkWin() && cells.indexOf('') === -1) {
             result.textContent = "It's a draw!";
-        }else{
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-            result.textContent = `Player ${currentPlayer} Turn`;
-            element.removeEventListener('click', handleCellClick);
         }
-        
-
-        
     }
 };
 

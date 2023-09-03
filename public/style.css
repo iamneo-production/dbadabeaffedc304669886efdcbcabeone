@@ -9,4 +9,91 @@ body {
     font-family: "Radio Canada", sans-serif;
   }
   
+html{
+  height: 100%;
+}
 /* Enter your styling here */
+/* Header Styling */
+h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px #888888;
+  font-size: 50px;
+}
+
+/* Game Container Styling */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Board Styling */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 5px;
+  margin-top: 20px;
+}
+
+.cell {
+  height: 100px;
+  width: 100px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+  text-shadow: 2px 2px 4px #888888;
+  cursor: pointer;
+}
+
+.cell:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+
+/* Result Container Styling */
+#result-container {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #000;
+  width: 200px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#result {
+  color: white;
+  text-shadow: 2px 2px 4px #888888;
+  font-size: 25px;
+}
+
+/* Reset Button Styling */
+button {
+  border: 1px solid #000;
+  color: white;
+  background-color: #000;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: white;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:disabled {
+  cursor: no-drop;
+  background-color: #ccc;
+  color: #888;
+}

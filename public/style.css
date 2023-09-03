@@ -1,91 +1,94 @@
-/* Import fonts and body styles remain the same as before */
 
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada:wght@400;500;600;700&display=swap");
+
+body {
+    background-image: url("https://cdn.pixabay.com/photo/2018/03/17/19/36/connection-3234929_1280.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: "Radio Canada", sans-serif;
+  }
+  
+/* Enter your styling here */
 /* Header Styling */
-h1 {
+#header {
   text-align: center;
   color: white;
-  text-shadow: 2px 2px 4px #888888;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-size: 50px;
 }
 
-/* Game Container Styling */
-.game-container {
+/* Box Styling */
+.board {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin: 15px;
 }
 
-/* Board Styling */
-.board {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 5px;
-  margin-top: 20px;
-}
-
+/* Row Styling */
 .row {
   display: flex;
   justify-content: center;
-}
-
-.box {
-  flex: 1;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  border: 1px solid #000;
 }
 
+/* Button Styling */
 .btn {
-  height: 100px;
-  width: 100px;
+  border: 2px solid black;
+  border-radius: 5px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
   font-size: 50px;
-  font-weight: 600;
+  font-weight: 500;
   background-color: rgba(255, 255, 255, 0.7);
   color: #333;
-  text-shadow: 2px 2px 4px #888888;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Center the label (X or O) */
 }
 
+/* Button Hover Styling */
 .btn:hover {
   background-color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
 }
 
+/* Disabled Button Styling */
+.btn:disabled {
+  display: block;
+  cursor: no-drop;
+}
+
 /* Result Container Styling */
+.result-container {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #333;
+  text-align: center;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Result Styling */
 .result {
   color: white;
-  text-shadow: 2px 2px 4px #888888;
-  font-size: 25px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+}
+
+/* Reset Styling */
+#reset {
+  display:block;
   text-align: center;
-  margin-top: 20px;
+  margin: 15px auto; /* Center horizontally and add margin for spacing */
 }
 
 /* Reset Button Styling */
-button {
-  border: 1px solid #000;
+#reset:hover {
+  background-color: black;
   color: white;
-  background-color: #000;
-  cursor: pointer;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-button:hover {
-  background-color: white;
-  color: #000;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-}
-
-button:disabled {
-  cursor: no-drop;
-  background-color: #ccc;
-  color: #888;
 }

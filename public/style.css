@@ -14,7 +14,7 @@ html{
 }
 /* Enter your styling here */
 /* Header Styling */
-h1 {
+#header {
   text-align: center;
   color: white;
   text-shadow: 2px 2px 4px #888888;

@@ -14,42 +14,33 @@ let conditions = [
     [2, 4, 6]
 ];
 
-// Function to handle player moves
-const ticTacToe = (element, index) => {
-    // Check if the cell is empty before proceeding
-    if (cells[index] === '') {
-        cells[index] = currentPlayer;
-        element.textContent = currentPlayer;
-
-        // Check for a win
-        if (checkWin()) {
-            result.textContent = `Player ${currentPlayer} wins!`;
-            disableAllButtons();
-        } else if (cells.indexOf('') === -1) {
-            result.textContent = "It's a draw!";
-        } else {
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-            result.textContent = `Player ${currentPlayer}'s turn`;
-        }
-
-        element.disabled = true; // Disable the button after it's clicked
-    }
-};
-
 // Function to check for a win
 const checkWin = () => {
     for (let condition of conditions) {
         const [a, b, c] = condition;
         if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
-            return true;
+            return cells[a];
         }
     }
-    return false;
+    return null;
 };
 
-// Function to disable all buttons
-const disableAllButtons = () => {
-    btns.forEach(btn => (btn.disabled = true));
+// Function to handle player moves
+const ticTacToe = (element, index) => {
+    if (cells[index] === '' && !checkWin()) {
+        cells[index] = currentPlayer;
+        element.value = currentPlayer;
+        element.disabled = true;
+
+        const winner = checkWin();
+        if (winner) {
+            result.textContent = `Player ${winner} wins!`;
+            btns.forEach(btn => (btn.disabled = true));
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            result.textContent = `Player ${currentPlayer}'s turn`;
+        }
+    }
 };
 
 // Function to reset the game
@@ -57,9 +48,9 @@ const resetGame = () => {
     cells = ['', '', '', '', '', '', '', '', ''];
     currentPlayer = 'X';
     result.textContent = `Player ${currentPlayer}'s turn`;
-    btns.forEach((btn) => {
-        btn.textContent = '';
-        btn.disabled = false; // Re-enable all buttons
+    btns.forEach((btn, i) => {
+        btn.value = '';
+        btn.disabled = false;
     });
 };
 
@@ -68,6 +59,3 @@ btns.forEach((btn, i) => {
 });
 
 document.querySelector('#reset').addEventListener('click', resetGame);
-
-// Call resetGame to initialize the game
-resetGame();

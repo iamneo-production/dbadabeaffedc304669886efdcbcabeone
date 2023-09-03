@@ -81,16 +81,3 @@ h1 {
   font-size: 20px;
   font-weight: 600;
 }
-
-/* button:hover {
-  background-color: white;
-  color: #000;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-} */
-
-/* button:disabled {
-  cursor: no-drop;
-  background-color: #ccc;
-  color: #888;
-} */

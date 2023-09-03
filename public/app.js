@@ -1,8 +1,8 @@
 // Initial game state
 let cells = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
-let result = document.querySelector('#result');
-let buttons = document.querySelectorAll('.cell');
+let result = document.querySelector('.result');
+let buttons = document.querySelectorAll('.cell.btn');  
 let gameActive = true;
 
 // Winning conditions
@@ -22,6 +22,8 @@ const ticTacToe = (element, index) => {
     if (gameActive && cells[index] === '') {
         cells[index] = currentPlayer;
         element.innerText = currentPlayer;
+        element.value = currentPlayer;  
+        element.disabled = true;
 
         if (checkWin()) {
             result.innerText = `Player ${currentPlayer} Won🎉`;
@@ -56,8 +58,8 @@ const resetGame = () => {
     });
 };
 
-btns.forEach((btn, i) => {
-    btn.addEventListener('click', () => ticTacToe(btn, i));
+buttons.forEach((button, i) => { // Changed variable name to 'button'
+    button.addEventListener('click', () => ticTacToe(button, i));
 });
 
 document.querySelector('#reset').addEventListener('click', resetGame);

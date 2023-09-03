@@ -36,8 +36,8 @@ const handleCellClick = (element, index) => {
             result.textContent = "It's a draw!";
         }else{
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        result.textContent = `Player ${currentPlayer} Turn`;
-        element.removeEventListener('click', handleCellClick);
+            result.textContent = `Player ${currentPlayer} Turn`;
+            element.removeEventListener('click', handleCellClick);
         }
         
 

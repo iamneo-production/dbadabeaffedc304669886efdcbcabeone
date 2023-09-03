@@ -49,7 +49,7 @@ const resetGame = () => {
     cells = ['', '', '', '', '', '', '', '', ''];
     currentPlayer = 'X';
     gameActive = true;
-    result.innerText = "Player X's turn";
+    result.innerText = "Player X Turn";
 
     buttons.forEach(button => {
         button.innerText = '';

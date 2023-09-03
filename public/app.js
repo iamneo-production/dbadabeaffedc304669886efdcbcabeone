@@ -1,9 +1,12 @@
 // Initial game state
 let cells = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
-let result = document.querySelector('.result');
-let btns = document.querySelectorAll('.btn');
-let conditions = [
+let result = document.querySelector('#result');
+let buttons = document.querySelectorAll('.cell');
+let gameActive = true;
+
+// Winning conditions
+const winPatterns = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -14,43 +17,42 @@ let conditions = [
     [2, 4, 6]
 ];
 
-// Function to check for a win
-const checkWin = () => {
-    for (let condition of conditions) {
-        const [a, b, c] = condition;
-        if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
-            return cells[a];
-        }
-    }
-    return null;
-};
-
 // Function to handle player moves
 const ticTacToe = (element, index) => {
-    if (cells[index] === '' && !checkWin()) {
+    if (gameActive && cells[index] === '') {
         cells[index] = currentPlayer;
-        element.value = currentPlayer;
-        element.disabled = true;
+        element.innerText = currentPlayer;
 
-        const winner = checkWin();
-        if (winner) {
-            result.textContent = `Player ${winner} wins!`;
-            btns.forEach(btn => (btn.disabled = true));
+        if (checkWin()) {
+            result.innerText = `Player ${currentPlayer} won`;
+            gameActive = false;
+        } else if (cells.every(cell => cell !== '')) {
+            result.innerText = "It's a draw!";
+            gameActive = false;
         } else {
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-            result.textContent = `Player ${currentPlayer}'s turn`;
+            result.innerText = `Player ${currentPlayer} Turn`;
         }
     }
+};
+
+// Function to check for winning conditions
+const checkWin = () => {
+    return winPatterns.some(pattern => {
+        const [a, b, c] = pattern;
+        return cells[a] && cells[a] === cells[b] && cells[b] === cells[c];
+    });
 };
 
 // Function to reset the game
 const resetGame = () => {
     cells = ['', '', '', '', '', '', '', '', ''];
     currentPlayer = 'X';
-    result.textContent = `Player ${currentPlayer}'s turn`;
-    btns.forEach((btn, i) => {
-        btn.value = '';
-        btn.disabled = false;
+    gameActive = true;
+    result.innerText = "Player X's turn";
+
+    buttons.forEach(button => {
+        button.innerText = '';
     });
 };
 

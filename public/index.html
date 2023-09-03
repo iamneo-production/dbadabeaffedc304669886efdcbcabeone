@@ -4,38 +4,36 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tic_tac_toe</title>
+  <title>Tic Tac Toe</title>
 
   <!-- link the style.css and app.js files -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Enter your code here -->
-  
-    <div class="game-container">
-      <h1 id="header">Tic Tac Toe</h1>
-      <div class="box">
-        <div class="row">
-            <input type="button" class="cell btn" onclick="ticTacToe(this, 0)">
-            <input type="button" class="cell btn" onclick="ticTacToe(this, 1)">
-            <input type="button" class="cell btn" onclick="ticTacToe(this, 2)">
-        </div>
-        <div class="row">
-            <input type="button" class="cell btn" onclick="ticTacToe(this, 3)">
-            <input type="button" class="cell btn" onclick="ticTacToe(this, 4)">
-            <input type="button" class="cell btn" onclick="ticTacToe(this, 5)">
-        </div>
-        <div class="row">
-            <input type="button" class="cell btn" onclick="ticTacToe(this, 6)">
-            <input type="button" class="cell btn" onclick="ticTacToe(this, 7)">
-            <input type="button" class="cell btn" onclick="ticTacToe(this, 8)">
-        </div>
+  <div class="game-container">
+    <h1 id="header">Tic Tac Toe</h1>
+    <div class="box">
+      <div class="row">
+        <input type="button" class="cell btn" onclick="ticTacToe(this, 0)">
+        <input type="button" class="cell btn" onclick="ticTacToe(this, 1)">
+        <input type="button" class="cell btn" onclick="ticTacToe(this, 2)">
+      </div>
+      <div class="row">
+        <input type="button" class="cell btn" onclick="ticTacToe(this, 3)">
+        <input type="button" class="cell btn" onclick="ticTacToe(this, 4)">
+        <input type="button" class="cell btn" onclick="ticTacToe(this, 5)">
+      </div>
+      <div class="row">
+        <input type="button" class="cell btn" onclick="ticTacToe(this, 6)">
+        <input type="button" class="cell btn" onclick="ticTacToe(this, 7)">
+        <input type="button" class="cell btn" onclick="ticTacToe(this, 8)">
+      </div>
     </div>
-        <div id="result-container">
-            <p id="result">Player X Turn</p>
-        </div>
-        <button class="btn" id="reset" onclick="resetGame()">Reset</button>
+    <div class="result-container">
+      <p class="result">Player X Turn</p>
     </div>
-    <script src="app.js"></script>
+    <button class="btn" id="reset" onclick="resetGame()">Reset</button>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
